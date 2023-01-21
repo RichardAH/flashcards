@@ -425,10 +425,10 @@ const speak = (txt) =>
 {
     const synth = window.speechSynthesis;
     const voices = synth.getVoices().sort(function (a, b) {
-    const aname = a.name.toUpperCase();
-    const bname = b.name.toUpperCase();
-
-    return aname < bname ? -1 : aname == bname ? 0 : 1;
+        const aname = a.name.toUpperCase();
+        const bname = b.name.toUpperCase();
+        return aname < bname ? -1 : aname == bname ? 0 : 1;
+    });
     
     const utterThis = new SpeechSynthesisUtterance(txt);
 
