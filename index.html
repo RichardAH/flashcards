@@ -3,7 +3,7 @@
 <body>
 <div style="position:absolute; top:0px; left:0px; width:100vw; z-index:9999; height:100px; background:white;">
     <center>
-        <h1 id="wrd">Word</h1>
+        <h1 id="wrd"><button onclick="runall();">Start</button></h1>
     </center>
 </div>
 
@@ -454,17 +454,17 @@ const run = (words, delay) =>
         return;
     }
     let word = words.pop();
-    document.getElementById('wrd').innerText = word; 
+    document.getElementById('wrd').innerHTML = word; 
     document.getElementById('if').src="https://www.pexels.com/search/" + word.replaceAll(' ', '%20') + "/"; setTimeout((()=>{run(words, delay);}), delay);
     setTimeout(()=>{speak(word);}, 1500);
     setTimeout(()=>{speak(word);}, 3000);
+    setTimeout(()=>{speak(word);}, 4500);
 }
 
-
-window.addEventListener("load", (event) =>
+function runall()
 {
     run(words, 8000);
-});
+}
 
 </script>
 </body>
