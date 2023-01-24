@@ -117,8 +117,162 @@ let words = shuffleArray([
 "lightbulb",
 "lion",
 "lobster",
-"magnet"
-    ]);
+"magnet",
+"Jumper",
+"Kettle",
+"Ladder",
+"Lampshade",
+"Lawnmower",
+"Lemon",
+"Letter",
+"Library",
+"Life jacket",
+"Light switch",
+"Lizard",
+"Lollipop",
+"Magnifying glass",
+"Mailbox",
+"Map",
+"Marker",
+"Match",
+"Mermaid",
+"Microphone",
+"Mirror",
+"Mitten",
+"Mixer",
+"Motorcycle",
+"Mouse",
+"Mushroom",
+"Music box",
+"Nectarine",
+"Notebook",
+"Nutcracker",
+"Oven",
+"Oyster",
+"Pacifier",
+"Paintbrush",
+"Panda",
+"Paper clip",
+"Paper plane",
+"Parrot",
+"Party hat",
+"Peacock",
+"Pear",
+"Pendant",
+"Penguin",
+"Pepper",
+"Perfume",
+"Phone",
+"Photo frame",
+"Picnic basket",
+"Piggy bank",
+"Pineapple",
+"Pirate ship",
+"Playground",
+"Plunger",
+"Popsicle",
+"Pouch",
+"Power drill",
+"Pram",
+"Pterodactyl",
+"Pumpkin",
+"Purse",
+"Push pin",
+"Puzzle",
+"Quadcopter",
+"Quail",
+"Radiator",
+"Raincoat",
+"Recorder",
+"Refrigerator",
+"Remote control",
+"Ring",
+"Robot",
+"Rocking horse",
+"Rollerblade",
+"Rollercoaster",
+"Rubber duck",
+"Raccoon",
+"Sailboat",
+"Sailing ship",
+"Sandcastle",
+"Sand dollar",
+"Sandals",
+"Scarf",
+"Scissors",
+"Scorpion",
+"Scooter",
+"Scuba diver",
+"Seahorse",
+"See-saw",
+"Sewing machine",
+"Shark",
+"Shell",
+"Shoeshine box",
+"Shower",
+"Skateboard",
+"Skeleton",
+"Skunk",
+"Slipper",
+"Snail",
+"Snowflake",
+"Snowman",
+"Soap dish",
+"Sofa",
+"Solar system",
+"Sombrero",
+"Spider",
+"Spool of thread",
+"Squirrel",
+"Staircase",
+"Starfish",
+"Statue",
+"Steering wheel",
+"Stethoscope",
+"Sticker",
+"Stockings",
+"Stove",
+"Straw",
+"Strawberry",
+"Streetlight",
+"Sunflower",
+"Sunglasses",
+"Surfer",
+"Sushi",
+"Swan",
+"Sweater",
+"Swimming pool",
+"Sword",
+"Tablecloth",
+"Tambourine",
+"Tangerine",
+"Teapot",
+"Teddy bear",
+"Telephone",
+"Telescope",
+"Television",
+"Tennis racket",
+"Thermometer",
+"Thimble",
+"Tiger",
+"Tissue box",
+"Toad",
+"Toaster",
+"Toilet",
+"Tomato",
+"Toothbrush",
+"Toothpaste",
+"Tornado",
+"Tractor",
+"Trailer",
+"Train station",
+"Trampoline",
+"Trash can"
+].filter(
+    (value, index, self) => {
+        return self.indexOf(value) === index;
+    }
+));
 
 const speak = (txt) =>
 {
@@ -128,7 +282,7 @@ const speak = (txt) =>
         const bname = b.name.toUpperCase();
         return aname < bname ? -1 : aname == bname ? 0 : 1;
     });
-    
+
     const utterThis = new SpeechSynthesisUtterance(txt);
 
     for (let i = 0; i < voices.length; i++)
@@ -146,14 +300,14 @@ const speak = (txt) =>
 }
 
 const run = (words, delay) =>
-{ 
+{
     if (!words || words.length == 0)
     {
         window.location.reload();
         return;
     }
     let word = words.pop();
-    document.getElementById('wrd').innerHTML = word; 
+    document.getElementById('wrd').innerHTML = word;
     document.getElementById('if').src="https://www.pexels.com/search/" + word.replaceAll(' ', '%20') + "/"; setTimeout((()=>{run(words, delay);}), delay);
     setTimeout(()=>{speak(word);}, 1500);
     setTimeout(()=>{speak(word);}, 3000);
